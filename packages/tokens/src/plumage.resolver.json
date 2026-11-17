@@ -1,0 +1,131 @@
+{
+  "name": "Plumage",
+  "version": "2025.10",
+  "description": "The Plumage theming matrix. Primitives are constant; brand, mode, and density are independent modifiers layered on top; component tokens resolve last. Each modifier maps to one Figma variable collection, and each context to one mode in it.",
+  "sets": {
+    "primitives": {
+      "description": "Tier 1. Raw values with no meaning. Figma collection: Primitives.",
+      "sources": [
+        {
+          "$ref": "primitives/color.tokens.json"
+        },
+        {
+          "$ref": "primitives/dimension.tokens.json"
+        },
+        {
+          "$ref": "primitives/typography.tokens.json"
+        },
+        {
+          "$ref": "primitives/effects.tokens.json"
+        }
+      ]
+    },
+    "components": {
+      "description": "Tier 3. Per-component knobs that alias semantic tokens.",
+      "sources": [
+        {
+          "$ref": "components/components.tokens.json"
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "brand": {
+      "description": "Which product. Figma collection: Brand. CSS: [data-brand].",
+      "contexts": {
+        "finch": [
+          {
+            "$ref": "brands/finch.tokens.json"
+          }
+        ],
+        "sparrow": [
+          {
+            "$ref": "brands/sparrow.tokens.json"
+          }
+        ],
+        "hummingbird": [
+          {
+            "$ref": "brands/hummingbird.tokens.json"
+          }
+        ],
+        "chickadee": [
+          {
+            "$ref": "brands/chickadee.tokens.json"
+          }
+        ]
+      },
+      "default": "finch",
+      "$extensions": {
+        "dev.plumage": {
+          "brands": {
+            "finch": {
+              "displayName": "Finch",
+              "defaultDensity": "compact"
+            },
+            "sparrow": {
+              "displayName": "Sparrow",
+              "defaultDensity": "comfortable"
+            },
+            "hummingbird": {
+              "displayName": "Hummingbird",
+              "defaultDensity": "comfortable"
+            },
+            "chickadee": {
+              "displayName": "Chickadee",
+              "defaultDensity": "comfortable"
+            }
+          }
+        }
+      }
+    },
+    "mode": {
+      "description": "Light or dark. Figma collection: Mode. CSS: [data-theme].",
+      "contexts": {
+        "light": [
+          {
+            "$ref": "modes/light.tokens.json"
+          }
+        ],
+        "dark": [
+          {
+            "$ref": "modes/dark.tokens.json"
+          }
+        ]
+      },
+      "default": "light"
+    },
+    "density": {
+      "description": "Spacing and sizing scale. Figma collection: Density. CSS: [data-density].",
+      "contexts": {
+        "comfortable": [
+          {
+            "$ref": "density/comfortable.tokens.json"
+          }
+        ],
+        "compact": [
+          {
+            "$ref": "density/compact.tokens.json"
+          }
+        ]
+      },
+      "default": "comfortable"
+    }
+  },
+  "resolutionOrder": [
+    {
+      "$ref": "#/sets/primitives"
+    },
+    {
+      "$ref": "#/modifiers/brand"
+    },
+    {
+      "$ref": "#/modifiers/mode"
+    },
+    {
+      "$ref": "#/modifiers/density"
+    },
+    {
+      "$ref": "#/sets/components"
+    }
+  ]
+}

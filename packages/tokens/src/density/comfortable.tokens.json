@@ -1,0 +1,167 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Comfortable density: roomier spacing, 36px controls, 14px body text. Sparrow's default.",
+  "space": {
+    "2xs": {
+      "$value": "{space.50}",
+      "$description": "General spacing scale for gaps, margins, and padding. Scales with density."
+    },
+    "xs": {
+      "$value": "{space.100}"
+    },
+    "sm": {
+      "$value": "{space.200}"
+    },
+    "md": {
+      "$value": "{space.300}"
+    },
+    "lg": {
+      "$value": "{space.400}"
+    },
+    "xl": {
+      "$value": "{space.600}"
+    },
+    "2xl": {
+      "$value": "{space.800}"
+    },
+    "inset": {
+      "sm": {
+        "$value": "{space.300}",
+        "$description": "Padding inside containers (cards, panels, popovers)."
+      },
+      "md": {
+        "$value": "{space.400}"
+      },
+      "lg": {
+        "$value": "{space.600}"
+      }
+    },
+    "control": {
+      "sm": {
+        "$value": "{space.200}",
+        "$description": "Inline (horizontal) padding inside controls."
+      },
+      "md": {
+        "$value": "{space.300}"
+      },
+      "lg": {
+        "$value": "{space.400}"
+      }
+    },
+    "$type": "dimension"
+  },
+  "size": {
+    "control": {
+      "sm": {
+        "$value": "{size.800}",
+        "$description": "Control heights: buttons, inputs, selects."
+      },
+      "md": {
+        "$value": "{size.900}"
+      },
+      "lg": {
+        "$value": "{size.1000}"
+      }
+    },
+    "row": {
+      "sm": {
+        "$value": "{size.800}",
+        "$description": "Row heights for tables and lists."
+      },
+      "md": {
+        "$value": "{size.1000}"
+      },
+      "lg": {
+        "$value": "{size.1200}"
+      }
+    },
+    "icon": {
+      "sm": {
+        "$value": "{size.350}",
+        "$description": "Icon sizes inside controls and rows."
+      },
+      "md": {
+        "$value": "{size.400}"
+      },
+      "lg": {
+        "$value": "{size.500}"
+      }
+    },
+    "figure": {
+      "sm": {
+        "$value": "{size.1000}",
+        "$description": "Small figures that sit beside text: progress rings."
+      },
+      "lg": {
+        "$value": "{size.1600}"
+      }
+    },
+    "$type": "dimension",
+    "bar": {
+      "$value": "{size.1400}",
+      "$description": "Height of app bars and toolbars."
+    },
+    "chart": {
+      "$description": "Plot heights, including the x-axis band.",
+      "sm": {
+        "$value": "{size.5000}"
+      },
+      "md": {
+        "$value": "{size.7000}"
+      },
+      "lg": {
+        "$value": "{size.9000}"
+      }
+    }
+  },
+  "font": {
+    "size": {
+      "caption": {
+        "$value": "{font.size.12}",
+        "$description": "Footnotes, axis labels, timestamps."
+      },
+      "label": {
+        "$value": "{font.size.13}",
+        "$description": "Form labels, table headers, badges."
+      },
+      "body": {
+        "$value": "{font.size.14}",
+        "$description": "Default interface text."
+      },
+      "title": {
+        "$value": "{font.size.16}",
+        "$description": "Card and section titles."
+      },
+      "heading": {
+        "$value": "{font.size.24}",
+        "$description": "Page titles."
+      },
+      "display": {
+        "$value": "{font.size.30}",
+        "$description": "Hero numbers such as a portfolio total."
+      },
+      "$type": "dimension"
+    },
+    "line-height": {
+      "caption": {
+        "$value": "{font.line-height.16}"
+      },
+      "label": {
+        "$value": "{font.line-height.20}"
+      },
+      "body": {
+        "$value": "{font.line-height.20}"
+      },
+      "title": {
+        "$value": "{font.line-height.24}"
+      },
+      "heading": {
+        "$value": "{font.line-height.32}"
+      },
+      "display": {
+        "$value": "{font.line-height.36}"
+      },
+      "$type": "dimension"
+    }
+  }
+}

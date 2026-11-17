@@ -1,0 +1,57 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { FontRoles, TypeScale } from "./blocks/typography";
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Fonts are brand tokens in four roles. Body and numeric are shared across brands so the
+products read as a family; display varies per brand.
+
+| Role      | Finch           | Sparrow                   | Hummingbird    | Chickadee        | Used for                      |
+| --------- | --------------- | ------------------------- | -------------- | ---------------- | ----------------------------- |
+| `body`    | Switzer         | Switzer                   | Switzer        | Switzer          | Text, labels, controls        |
+| `display` | Cabinet Grotesk | Satoshi (or General Sans) | Clash Grotesk  | Gambetta (serif) | Page titles and headings      |
+| `numeric` | Switzer         | Switzer                   | Switzer        | Switzer          | Figures, with tabular numbers |
+| `mono`    | JetBrains Mono  | JetBrains Mono            | JetBrains Mono | JetBrains Mono   | Code and token names          |
+
+The fonts are named, never bundled: they are Fontshare fonts under the ITF Free Font
+License, so each product self-hosts the files it uses (ADR 0020). This site loads them from
+Fontshare's CSS API instead, so each brand shows its real faces. The visual tests block that
+request, so their baselines show whatever of these faces are installed on the machine that
+made them, and the fallback stacks otherwise: every sans stack falls back to Inter and then
+the system font, and Gambetta falls back to the system serifs (Iowan Old Style, Georgia).
+
+**Display text is tuned per brand.** A serif and a grotesk need different spacing, and a
+weight reads differently in each family, so every brand sets four display tokens:
+
+| Token                      | Finch                | Sparrow | Hummingbird | Chickadee | What it does                            |
+| -------------------------- | -------------------- | ------- | ----------- | --------- | --------------------------------------- |
+| `font.display.weight`      | 600                  | 500     | 600         | 500       | Weight of titles and hero numbers       |
+| `font.display.tracking`    | 0                    | 0       | −0.01em     | 0         | Letter spacing                          |
+| `font.display.line-height` | 1                    | 1       | 1           | 1.05      | Multiplier on the density's line height |
+| `font.display.figures`     | lining, proportional | same    | same        | same      | `font-variant-numeric` for display text |
+
+Use them through two utilities from `@plumage/ui`: `display-heading` (page titles, at the
+heading size) and `display-figure` (hero numbers, at the display size). `font-display`
+alone sets only the family. Display figures are always lining: Gambetta's own figures are,
+but Georgia, its fallback, defaults to oldstyle figures, which would make a large number
+look uneven.
+
+**Numbers use tabular figures.** Each font primitive declares whether it has them, and a
+test requires every brand's `numeric` role to point at one that does, falling back to
+JetBrains Mono otherwise (ADR 0027). The declarations were checked against Fontshare's font
+files (ADR 0040): Switzer's digits are all one width, Satoshi has `tnum`, and Cabinet
+Grotesk, General Sans, Clash Grotesk, and Gambetta are proportional only, so none of those
+four may be a `numeric` role. Negative numbers use a true minus sign (U+2212).
+
+## Roles
+
+<FontRoles />
+
+## Scale
+
+Six steps. Sizes and line heights are density tokens, so compact is a little smaller and
+tighter than comfortable.
+
+<TypeScale />

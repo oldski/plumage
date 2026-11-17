@@ -1,0 +1,49 @@
+{
+  "name": "@plumage/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plumage design tokens: DTCG source, a resolver for brand, mode, and density, and generated CSS, Tailwind v4, TypeScript, and Figma outputs.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./css": "./dist/plumage.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./manifest.json": "./dist/manifest.json",
+    "./figma/*": "./dist/figma/*",
+    "./resolver": "./src/plumage.resolver.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tz build && node --experimental-strip-types --no-warnings scripts/format-output.ts",
+    "ramps": "node --experimental-strip-types --no-warnings scripts/generate-ramps.ts",
+    "check": "node --experimental-strip-types --no-warnings scripts/check-tokens.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@tailwindcss/node": "^4.3.3",
+    "@terrazzo/cli": "~2.10.0",
+    "@terrazzo/parser": "~2.10.0",
+    "@terrazzo/plugin-css": "~2.10.0",
+    "@terrazzo/token-tools": "~2.10.0",
+    "@types/culori": "^4.0.1",
+    "@types/node": "^24.10.0",
+    "culori": "^4.0.2",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

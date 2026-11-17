@@ -1,0 +1,307 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Light mode: semantic colors and elevation. Values point at the brand palette (brand.color.*), so one mapping serves every brand. Chart hues point at primitives because chart palettes are validated once for every brand.",
+  "color": {
+    "bg": {
+      "canvas": {
+        "$value": "{brand.color.neutral.50}",
+        "$description": "App background behind surfaces."
+      },
+      "surface": {
+        "$value": "{brand.color.neutral.0}",
+        "$description": "Cards, tables, panels. The chart surface."
+      },
+      "raised": {
+        "$value": "{brand.color.neutral.0}",
+        "$description": "Popovers, menus, dialogs, sheets."
+      },
+      "sunken": {
+        "$value": "{brand.color.neutral.100}",
+        "$description": "Wells and inset regions."
+      },
+      "hover": {
+        "$value": "{color.black-alpha.4}",
+        "$description": "Translucent hover wash; works on any surface."
+      },
+      "active": {
+        "$value": "{color.black-alpha.8}",
+        "$description": "Translucent pressed wash."
+      },
+      "selected": {
+        "$value": "{brand.color.accent.100}",
+        "$description": "Selected rows and items. Same value as color.accent.subtle."
+      },
+      "disabled": {
+        "$value": "{brand.color.neutral.100}",
+        "$description": "Disabled control fill."
+      },
+      "inverse": {
+        "$value": "{brand.color.neutral.900}",
+        "$description": "Tooltips and inverse callouts."
+      },
+      "overlay": {
+        "$value": "{color.black-alpha.48}",
+        "$description": "Scrim behind modal dialogs and sheets."
+      }
+    },
+    "text": {
+      "default": {
+        "$value": "{brand.color.neutral.950}",
+        "$description": "Primary text."
+      },
+      "muted": {
+        "$value": "{brand.color.neutral.700}",
+        "$description": "Secondary text. At least 4.5:1 on every surface."
+      },
+      "subtle": {
+        "$value": "{brand.color.neutral.600}",
+        "$description": "Tertiary text, captions, placeholders. At least 4.5:1 on every surface."
+      },
+      "disabled": {
+        "$value": "{brand.color.neutral.400}",
+        "$description": "Disabled text. Exempt from contrast minimums; never the only cue."
+      },
+      "inverse": {
+        "$value": "{brand.color.neutral.25}",
+        "$description": "Text on color.bg.inverse."
+      },
+      "on-accent": {
+        "$value": "{brand.color.accent.on-solid}",
+        "$description": "Text and icons on color.accent.default."
+      },
+      "on-solid": {
+        "$value": "{brand.color.neutral.0}",
+        "$description": "Text and icons on feedback solid fills."
+      },
+      "link": {
+        "$value": "{brand.color.accent.600}",
+        "$description": "Inline links. Same value as color.accent.text."
+      }
+    },
+    "border": {
+      "subtle": {
+        "$value": "{brand.color.neutral.100}",
+        "$description": "Dividers inside a surface."
+      },
+      "default": {
+        "$value": "{brand.color.neutral.200}",
+        "$description": "Card and table outlines. Decorative, so no contrast minimum."
+      },
+      "strong": {
+        "$value": "{brand.color.neutral.500}",
+        "$description": "Boundaries that identify a control (inputs, checkboxes). At least 3:1."
+      },
+      "focus": {
+        "$value": "{brand.color.accent.500}",
+        "$description": "Focus ring. At least 3:1 against every surface."
+      }
+    },
+    "accent": {
+      "default": {
+        "$value": "{brand.color.accent.solid}",
+        "$description": "Primary actions and selected controls."
+      },
+      "hover": {
+        "$value": "{brand.color.accent.solid-hover}",
+        "$description": "Hover on accent fills."
+      },
+      "active": {
+        "$value": "{brand.color.accent.solid-active}",
+        "$description": "Pressed accent fills."
+      },
+      "subtle": {
+        "$value": "{brand.color.accent.100}",
+        "$description": "Tinted backgrounds."
+      },
+      "text": {
+        "$value": "{brand.color.accent.600}",
+        "$description": "Accent-colored text and icons. At least 4.5:1 on every surface."
+      }
+    },
+    "feedback": {
+      "positive": {
+        "$value": "{brand.color.positive.600}",
+        "$description": "Text and icons that signal positive. At least 4.5:1 on surfaces and on positive-subtle."
+      },
+      "positive-subtle": {
+        "$value": "{brand.color.positive.100}",
+        "$description": "Tinted background for positive messages."
+      },
+      "positive-solid": {
+        "$value": "{brand.color.positive.600}",
+        "$description": "Solid positive fill; pair with color.text.on-solid."
+      },
+      "positive-border": {
+        "$value": "{brand.color.positive.300}",
+        "$description": "Outline for positive messages."
+      },
+      "negative": {
+        "$value": "{brand.color.negative.600}",
+        "$description": "Text and icons that signal negative. At least 4.5:1 on surfaces and on negative-subtle."
+      },
+      "negative-subtle": {
+        "$value": "{brand.color.negative.100}",
+        "$description": "Tinted background for negative messages."
+      },
+      "negative-solid": {
+        "$value": "{brand.color.negative.600}",
+        "$description": "Solid negative fill; pair with color.text.on-solid."
+      },
+      "negative-border": {
+        "$value": "{brand.color.negative.300}",
+        "$description": "Outline for negative messages."
+      },
+      "warning": {
+        "$value": "{brand.color.warning.600}",
+        "$description": "Text and icons that signal warning. At least 4.5:1 on surfaces and on warning-subtle."
+      },
+      "warning-subtle": {
+        "$value": "{brand.color.warning.100}",
+        "$description": "Tinted background for warning messages."
+      },
+      "warning-solid": {
+        "$value": "{brand.color.warning.600}",
+        "$description": "Solid warning fill; pair with color.text.on-solid."
+      },
+      "warning-border": {
+        "$value": "{brand.color.warning.300}",
+        "$description": "Outline for warning messages."
+      },
+      "info": {
+        "$value": "{brand.color.info.600}",
+        "$description": "Text and icons that signal info. At least 4.5:1 on surfaces and on info-subtle."
+      },
+      "info-subtle": {
+        "$value": "{brand.color.info.100}",
+        "$description": "Tinted background for info messages."
+      },
+      "info-solid": {
+        "$value": "{brand.color.info.600}",
+        "$description": "Solid info fill; pair with color.text.on-solid."
+      },
+      "info-border": {
+        "$value": "{brand.color.info.300}",
+        "$description": "Outline for info messages."
+      }
+    },
+    "chart": {
+      "categorical": {
+        "1": {
+          "$value": "{color.blue.500}",
+          "$description": "Series identity. Assign in slot order, never cycle; fold a ninth series into Other."
+        },
+        "2": {
+          "$value": "{color.orange.500}"
+        },
+        "3": {
+          "$value": "{color.teal.500}"
+        },
+        "4": {
+          "$value": "{color.gold.500}"
+        },
+        "5": {
+          "$value": "{color.pink.500}"
+        },
+        "6": {
+          "$value": "{color.green.500}"
+        },
+        "7": {
+          "$value": "{color.violet.500}"
+        },
+        "8": {
+          "$value": "{color.red.500}"
+        }
+      },
+      "sequential": {
+        "1": {
+          "$value": "{color.blue.100}",
+          "$description": "Magnitude, low (1) to high (7). Dark mode runs toward light so high values stand out."
+        },
+        "2": {
+          "$value": "{color.blue.200}"
+        },
+        "3": {
+          "$value": "{color.blue.300}"
+        },
+        "4": {
+          "$value": "{color.blue.400}"
+        },
+        "5": {
+          "$value": "{color.blue.500}"
+        },
+        "6": {
+          "$value": "{color.blue.600}"
+        },
+        "7": {
+          "$value": "{color.blue.700}"
+        }
+      },
+      "diverging": {
+        "1": {
+          "$value": "{color.red.600}",
+          "$description": "Polarity around a neutral midpoint (4). Red below, blue above."
+        },
+        "2": {
+          "$value": "{color.red.400}"
+        },
+        "3": {
+          "$value": "{color.red.200}"
+        },
+        "4": {
+          "$value": "{brand.color.neutral.150}"
+        },
+        "5": {
+          "$value": "{color.blue.200}"
+        },
+        "6": {
+          "$value": "{color.blue.400}"
+        },
+        "7": {
+          "$value": "{color.blue.600}"
+        }
+      },
+      "delta": {
+        "positive": {
+          "$value": "{brand.color.positive.500}",
+          "$description": "Marks for gains. Never the only cue; pair with sign, arrow, or label."
+        },
+        "negative": {
+          "$value": "{brand.color.negative.500}",
+          "$description": "Marks for losses. Never the only cue; pair with sign, arrow, or label."
+        },
+        "neutral": {
+          "$value": "{brand.color.neutral.500}",
+          "$description": "Marks for no change."
+        }
+      },
+      "highlight": {
+        "$value": "{brand.color.highlight.500}",
+        "$description": "One emphasized mark: a series to pick out, today's cell, a target line. At least 3:1 against the surface."
+      },
+      "grid": {
+        "$value": "{brand.color.neutral.150}",
+        "$description": "Gridlines. Recessive by design."
+      },
+      "axis": {
+        "$value": "{brand.color.neutral.300}",
+        "$description": "Baselines and axis lines."
+      }
+    },
+    "$type": "color"
+  },
+  "shadow": {
+    "raised": {
+      "$value": "{shadow.soft.100}",
+      "$description": "Cards that lift slightly off the canvas."
+    },
+    "overlay": {
+      "$value": "{shadow.soft.200}",
+      "$description": "Popovers, menus, tooltips."
+    },
+    "modal": {
+      "$value": "{shadow.soft.300}",
+      "$description": "Dialogs and sheets."
+    },
+    "$type": "shadow"
+  }
+}

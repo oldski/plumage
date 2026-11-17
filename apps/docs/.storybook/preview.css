@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@plumage/tokens/css";
+@import "@plumage/tokens/tailwind.css";
+@import "@plumage/ui/styles.css";
+
+/* The story canvas takes the active scope's canvas color, edge to edge. */
+html[data-brand] .sb-show-main {
+  background-color: var(--pl-color-bg-canvas);
+}

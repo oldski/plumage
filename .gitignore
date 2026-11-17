@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+storybook-static/
+# The shadcn registry, generated from @plumage/ui by apps/docs (pnpm registry)
+apps/docs/.registry/
+apps/docs/public/r/
+*.tsbuildinfo
+
+# tooling caches
+.turbo/
+coverage/
+.eslintcache
+
+# Playwright: temporary files, traces, and failure output (baselines are committed)
+tests/visual/.tmp/
+playwright-report/
+test-results/
+
+# local environment and deployment settings
+.env*
+.vercel/
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/

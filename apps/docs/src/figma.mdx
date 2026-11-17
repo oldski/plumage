@@ -1,0 +1,53 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Figma workflow" />
+
+# Figma workflow
+
+The tokens in `packages/tokens/src` are the source of truth. The build writes them out as
+Figma variables, so designers work with the same names and values the code uses.
+
+## The collections
+
+`pnpm --filter @plumage/tokens build` writes one DTCG JSON file per collection and mode to
+`packages/tokens/dist/figma/`:
+
+| Collection     | Modes                                  | Holds                                                        |
+| -------------- | -------------------------------------- | ------------------------------------------------------------ |
+| **Primitives** | Value                                  | Raw ramps, sizes, type, effects: named by value              |
+| **Brand**      | finch, sparrow, hummingbird, chickadee | Each brand's palette and brand-level choices (radius, fonts) |
+| **Mode**       | light, dark                            | Semantic colors, chart colors, and shadows                   |
+| **Density**    | compact, comfortable                   | Spacing, control and row sizes, type sizes                   |
+
+Each collection is a theming dimension and each mode one of its choices, exactly as in the
+resolver (`src/plumage.resolver.json`). A variable in a later collection aliases one in an
+earlier one (`{brand.color.neutral.975}`), so switching a frame's Brand, Mode, or Density
+mode in Figma restyles it the way `data-brand`, `data-theme`, and `data-density` do in code.
+Component tokens (`button.radius`) stay in code.
+
+## Importing
+
+1. Build the tokens: `pnpm --filter @plumage/tokens build`.
+2. In the Figma file, import **Primitives** first, since the others alias it, then
+   **Brand**, **Mode**, and **Density**, one file per mode (for example
+   `Brand/finch.tokens.json`, `Brand/sparrow.tokens.json`, `Brand/hummingbird.tokens.json`,
+   and `Brand/chickadee.tokens.json` as the four modes of Brand).
+3. Use Figma's variable import for DTCG JSON, or a DTCG-aware plugin such as Tokens Studio.
+   Keep the collection and mode names as the folders and files name them.
+4. Apply the variables in components; never type a raw value in a Plumage-styled frame.
+
+## Making a change
+
+Changes flow from code to Figma, never back by export:
+
+1. Edit the token in `packages/tokens/src` (a brand file, a mode, or density), or add a
+   brand by following _Adding a brand_.
+2. Run `pnpm --filter @plumage/tokens build` and `check`. A contrast failure stops here.
+3. Re-import the changed collection in Figma. Variables keep their names, so components
+   that use them update.
+4. Open a pull request with a changeset; the visual regression suite shows every story the
+   change touched.
+
+A designer who wants a new value proposes it as a token change, ideally as a pull request
+to the token files, so the contrast check and the screenshots review it before it reaches
+either side.

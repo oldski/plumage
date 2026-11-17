@@ -1,0 +1,250 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "$description": "Primitive typeface stacks. Apps load the web fonts they use; Plumage bundles none. Fontshare families (Switzer, Cabinet Grotesk, Satoshi, General Sans, Clash Grotesk, Gambetta) are named here and never shipped (ADR 0020): until an app loads one, a sans stack falls back to Inter, which the apps bundle, then the system UI font, and the serif stack falls back to the system serifs. tabularFigures was checked against Fontshare's font files on 2026-10-30 (ADR 0040): Switzer's digits are all one width with no tnum feature needed; Satoshi has tnum; Cabinet Grotesk, General Sans, Clash Grotesk, and Gambetta have proportional figures only.",
+      "inter": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": true
+          }
+        },
+        "$value": ["Inter Variable", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+      },
+      "switzer": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": true
+          }
+        },
+        "$value": ["Switzer", "Inter Variable", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+      },
+      "cabinet-grotesk": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": false
+          }
+        },
+        "$value": [
+          "Cabinet Grotesk",
+          "Inter Variable",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "satoshi": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": true
+          }
+        },
+        "$value": [
+          "Satoshi",
+          "General Sans",
+          "Inter Variable",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "general-sans": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": false
+          }
+        },
+        "$value": [
+          "General Sans",
+          "Inter Variable",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "clash-grotesk": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": false
+          }
+        },
+        "$value": [
+          "Clash Grotesk",
+          "Inter Variable",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "gambetta": {
+        "$description": "A serif. Its own figures are lining, but Georgia, a likely fallback, defaults to oldstyle figures; display text sets lining figures explicitly (font.display.figures).",
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": false
+          }
+        },
+        "$value": ["Gambetta", "Iowan Old Style", "Georgia", "ui-serif", "serif"]
+      },
+      "system": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": false
+          }
+        },
+        "$value": ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"]
+      },
+      "jetbrains-mono": {
+        "$extensions": {
+          "dev.plumage": {
+            "tabularFigures": true
+          }
+        },
+        "$value": [
+          "JetBrains Mono Variable",
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace"
+        ]
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "$description": "Primitive font weights.",
+      "400": {
+        "$value": 400
+      },
+      "500": {
+        "$value": 500
+      },
+      "600": {
+        "$value": 600
+      },
+      "700": {
+        "$value": 700
+      }
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "Primitive font sizes, keyed by px. Values are rem.",
+      "11": {
+        "$value": {
+          "value": 0.6875,
+          "unit": "rem"
+        }
+      },
+      "12": {
+        "$value": {
+          "value": 0.75,
+          "unit": "rem"
+        }
+      },
+      "13": {
+        "$value": {
+          "value": 0.8125,
+          "unit": "rem"
+        }
+      },
+      "14": {
+        "$value": {
+          "value": 0.875,
+          "unit": "rem"
+        }
+      },
+      "15": {
+        "$value": {
+          "value": 0.9375,
+          "unit": "rem"
+        }
+      },
+      "16": {
+        "$value": {
+          "value": 1,
+          "unit": "rem"
+        }
+      },
+      "18": {
+        "$value": {
+          "value": 1.125,
+          "unit": "rem"
+        }
+      },
+      "20": {
+        "$value": {
+          "value": 1.25,
+          "unit": "rem"
+        }
+      },
+      "24": {
+        "$value": {
+          "value": 1.5,
+          "unit": "rem"
+        }
+      },
+      "30": {
+        "$value": {
+          "value": 1.875,
+          "unit": "rem"
+        }
+      },
+      "36": {
+        "$value": {
+          "value": 2.25,
+          "unit": "rem"
+        }
+      }
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$description": "Primitive line heights on the 4px grid, keyed by px. Values are rem.",
+      "16": {
+        "$value": {
+          "value": 1,
+          "unit": "rem"
+        }
+      },
+      "20": {
+        "$value": {
+          "value": 1.25,
+          "unit": "rem"
+        }
+      },
+      "24": {
+        "$value": {
+          "value": 1.5,
+          "unit": "rem"
+        }
+      },
+      "28": {
+        "$value": {
+          "value": 1.75,
+          "unit": "rem"
+        }
+      },
+      "32": {
+        "$value": {
+          "value": 2,
+          "unit": "rem"
+        }
+      },
+      "36": {
+        "$value": {
+          "value": 2.25,
+          "unit": "rem"
+        }
+      },
+      "40": {
+        "$value": {
+          "value": 2.5,
+          "unit": "rem"
+        }
+      }
+    }
+  }
+}

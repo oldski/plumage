@@ -1,0 +1,196 @@
+/*
+ * @plumage/ui base styles. Import after Tailwind and the token CSS:
+ *
+ *   @import "tailwindcss";
+ *   @import "@plumage/tokens/css";
+ *   @import "@plumage/tokens/tailwind.css";
+ *   @import "@plumage/ui/styles.css";
+ *
+ * Everything here is built from tokens: motion utilities read the brand's
+ * durations and easings, so reduced motion and brand personality apply
+ * automatically.
+ */
+
+/* Let Tailwind find the classes used by Plumage components. */
+@source "./";
+
+@theme inline {
+  --animate-fade-in: pl-fade-in var(--pl-motion-duration-medium) var(--pl-motion-easing-enter);
+  --animate-fade-out: pl-fade-out var(--pl-motion-duration-fast) var(--pl-motion-easing-exit);
+  --animate-pop-in: pl-pop-in var(--pl-motion-duration-medium) var(--pl-motion-easing-enter);
+  --animate-pop-out: pl-pop-out var(--pl-motion-duration-fast) var(--pl-motion-easing-exit);
+  --animate-slide-in-right: pl-slide-in-right var(--pl-motion-duration-slow)
+    var(--pl-motion-easing-enter);
+  --animate-slide-out-right: pl-slide-out-right var(--pl-motion-duration-medium)
+    var(--pl-motion-easing-exit);
+  --animate-slide-in-left: pl-slide-in-left var(--pl-motion-duration-slow)
+    var(--pl-motion-easing-enter);
+  --animate-slide-out-left: pl-slide-out-left var(--pl-motion-duration-medium)
+    var(--pl-motion-easing-exit);
+  --animate-slide-in-top: pl-slide-in-top var(--pl-motion-duration-slow)
+    var(--pl-motion-easing-enter);
+  --animate-slide-out-top: pl-slide-out-top var(--pl-motion-duration-medium)
+    var(--pl-motion-easing-exit);
+  --animate-slide-in-bottom: pl-slide-in-bottom var(--pl-motion-duration-slow)
+    var(--pl-motion-easing-enter);
+  --animate-slide-out-bottom: pl-slide-out-bottom var(--pl-motion-duration-medium)
+    var(--pl-motion-easing-exit);
+  /* Long loops derive from the slow duration, so reduced motion stops them too. */
+  --animate-pulse: pl-pulse calc(var(--pl-motion-duration-slow) * 8)
+    var(--pl-motion-easing-standard) infinite;
+  --animate-spin: pl-spin calc(var(--pl-motion-duration-slow) * 4) linear infinite;
+}
+
+@keyframes pl-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pl-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes pl-pop-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+@keyframes pl-pop-out {
+  to {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+@keyframes pl-slide-in-right {
+  from {
+    translate: 100% 0;
+  }
+}
+@keyframes pl-slide-out-right {
+  to {
+    translate: 100% 0;
+  }
+}
+@keyframes pl-slide-in-left {
+  from {
+    translate: -100% 0;
+  }
+}
+@keyframes pl-slide-out-left {
+  to {
+    translate: -100% 0;
+  }
+}
+@keyframes pl-slide-in-top {
+  from {
+    translate: 0 -100%;
+  }
+}
+@keyframes pl-slide-out-top {
+  to {
+    translate: 0 -100%;
+  }
+}
+@keyframes pl-slide-in-bottom {
+  from {
+    translate: 0 100%;
+  }
+}
+@keyframes pl-slide-out-bottom {
+  to {
+    translate: 0 100%;
+  }
+}
+@keyframes pl-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes pl-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/*
+ * Display text, set the way the brand tunes its display face: family, weight,
+ * tracking, figures, and leading (a multiplier on the density's line height,
+ * so 1 keeps it). "font-display" alone sets only the family.
+ *   display-heading: page titles, at the heading size.
+ *   display-figure: hero numbers, at the display size.
+ */
+@utility display-heading {
+  font-family: var(--pl-font-family-display);
+  font-weight: var(--pl-font-display-weight);
+  letter-spacing: calc(var(--pl-font-display-tracking) * 1em);
+  font-variant-numeric: var(--pl-font-display-figures);
+  font-size: var(--pl-font-size-heading);
+  line-height: calc(var(--pl-font-line-height-heading) * var(--pl-font-display-line-height));
+}
+
+@utility display-figure {
+  font-family: var(--pl-font-family-display);
+  font-weight: var(--pl-font-display-weight);
+  letter-spacing: calc(var(--pl-font-display-tracking) * 1em);
+  font-variant-numeric: var(--pl-font-display-figures);
+  font-size: var(--pl-font-size-display);
+  line-height: calc(var(--pl-font-line-height-display) * var(--pl-font-display-line-height));
+}
+
+/* One visible focus treatment for every interactive element. */
+@utility focus-ring {
+  &:focus-visible {
+    outline: var(--pl-focus-ring-width) solid var(--pl-color-border-focus);
+    outline-offset: var(--pl-focus-ring-offset);
+  }
+}
+
+/* The same ring on a container whose real control (often a hidden input) has focus. */
+@utility focus-ring-within {
+  &:has(:focus-visible) {
+    outline: var(--pl-focus-ring-width) solid var(--pl-color-border-focus);
+    outline-offset: var(--pl-focus-ring-offset);
+  }
+}
+
+/*
+ * Hover and press washes that work on any fill: the translucent bg.hover and
+ * bg.active tokens are layered over whatever background the element has.
+ */
+@utility interactive {
+  &:hover:not(:disabled, [data-disabled]) {
+    background-image: linear-gradient(var(--pl-color-bg-hover), var(--pl-color-bg-hover));
+  }
+  &:active:not(:disabled, [data-disabled]) {
+    background-image: linear-gradient(var(--pl-color-bg-active), var(--pl-color-bg-active));
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--pl-color-border-default);
+  }
+
+  [data-brand] {
+    font-family: var(--pl-font-family-body);
+    color: var(--pl-color-text-default);
+  }
+
+  /*
+   * Body text size goes on <body> for the root scope, never on <html>: a font
+   * size on <html> redefines 1rem, and every rem-based token would shrink.
+   */
+  [data-brand]:not(html),
+  html[data-brand] body {
+    font-size: var(--pl-font-size-body);
+    line-height: var(--pl-font-line-height-body);
+  }
+
+  html[data-brand] body {
+    background-color: var(--pl-color-bg-canvas);
+  }
+}

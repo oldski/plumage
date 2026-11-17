@@ -1,0 +1,73 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Installing with shadcn" />
+
+# Installing with shadcn
+
+Plumage is a [shadcn registry](https://ui.shadcn.com/docs/registry), served by
+this site. The site serves it at `/r`: one JSON file per item, such as `/r/button.json`, and the full list
+at `/r/registry.json`. Adding an item copies its source into your project, with the other
+Plumage items it needs and its npm dependencies.
+
+## 1. Point shadcn at the registry
+
+In your project's `components.json`, add Plumage as a namespaced registry. Use the address
+this site is served from, `https://plumage.oldskilabs.com`:
+
+```json
+{
+  "registries": {
+    "@plumage": "https://plumage.oldskilabs.com/r/{name}.json"
+  }
+}
+```
+
+A local Storybook serves the same registry at `http://127.0.0.1:6006/r/{name}.json`.
+
+## 2. Add what you need
+
+```sh
+npx shadcn add @plumage/button @plumage/combobox @plumage/plumage-provider
+```
+
+Every item brings `@plumage/plumage`, the base: the built tokens (CSS custom properties,
+the Tailwind theme, and their small runtime), the token-aware `cn`, number formatting, and
+the motion styles. Files land in `components/plumage/`, laid out as they are in
+`@plumage/ui`, so the imports between them work as written.
+
+## 3. Import the styles
+
+In your global CSS, after Tailwind (paths from that CSS file):
+
+```css
+@import "tailwindcss";
+@import "./components/plumage/tokens/plumage.css";
+@import "./components/plumage/tokens/tailwind.css";
+@import "./components/plumage/plumage.css";
+```
+
+The Tailwind theme switches off Tailwind's default palette and scales, so only token
+utilities exist (`bg-surface`, `text-muted`, `h-control-md`). Use those in your own code
+too.
+
+## 4. Wrap the app
+
+```tsx
+import { PlumageProvider } from "@/components/plumage/provider/plumage-provider";
+
+<PlumageProvider brand="sparrow" mode="system">
+  <App />
+</PlumageProvider>;
+```
+
+## Fonts
+
+The tokens name font families (Switzer, Cabinet Grotesk, Satoshi) and fall back to Inter
+and the system font. The registry never ships font files: Fontshare fonts are licensed for
+self-hosting by each product, so add them to your own app if you want them.
+
+## Updating
+
+Run `shadcn add` again to see what changed upstream; shadcn asks before overwriting a file
+you have edited. The registry is rebuilt from `@plumage/ui` with
+`pnpm --filter @plumage/docs registry` and served with this site.

@@ -1,0 +1,217 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Component tokens. Only where a component needs a knob of its own; each one points at a semantic token, never a primitive.",
+  "button": {
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.control}"
+    },
+    "font-weight": {
+      "$type": "fontWeight",
+      "$value": "{font.weight.label}"
+    }
+  },
+  "input": {
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.control}"
+    }
+  },
+  "checkbox": {
+    "$type": "dimension",
+    "size": {
+      "$value": "{size.icon.md}"
+    },
+    "radius": {
+      "$value": "{radius.indicator}"
+    }
+  },
+  "switch": {
+    "$type": "dimension",
+    "track": {
+      "width": {
+        "$value": "{size.control.sm}"
+      },
+      "height": {
+        "$value": "{size.icon.md}"
+      }
+    },
+    "thumb": {
+      "size": {
+        "$value": "{size.icon.sm}"
+      }
+    }
+  },
+  "progress": {
+    "$type": "dimension",
+    "track": {
+      "height": {
+        "$value": "{space.sm}",
+        "$description": "Thickness of a progress bar. Follows density."
+      }
+    }
+  },
+  "badge": {
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.pill}"
+    }
+  },
+  "card": {
+    "$type": "dimension",
+    "radius": {
+      "$value": "{radius.container}"
+    },
+    "padding": {
+      "$value": "{space.inset.md}"
+    }
+  },
+  "dialog": {
+    "$type": "dimension",
+    "radius": {
+      "$value": "{radius.overlay}"
+    },
+    "padding": {
+      "$value": "{space.inset.lg}"
+    },
+    "width": {
+      "$value": "{size.overlay.md}"
+    }
+  },
+  "sheet": {
+    "$type": "dimension",
+    "width": {
+      "$value": "{size.overlay.sm}"
+    },
+    "padding": {
+      "$value": "{space.inset.lg}"
+    }
+  },
+  "menu": {
+    "$type": "dimension",
+    "min-width": {
+      "$value": "{size.overlay.2xs}"
+    },
+    "radius": {
+      "$value": "{radius.container}"
+    }
+  },
+  "tooltip": {
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.control}"
+    },
+    "max-width": {
+      "$type": "dimension",
+      "$value": "{size.overlay.xs}"
+    }
+  },
+  "toast": {
+    "$type": "dimension",
+    "width": {
+      "$value": "{size.overlay.sm}"
+    },
+    "radius": {
+      "$value": "{radius.container}"
+    }
+  },
+  "table": {
+    "$type": "dimension",
+    "row": {
+      "height": {
+        "$value": "{size.row.md}"
+      }
+    },
+    "header": {
+      "height": {
+        "$value": "{size.row.sm}"
+      }
+    },
+    "cell": {
+      "padding-x": {
+        "$value": "{space.md}"
+      }
+    }
+  },
+  "app-shell": {
+    "$type": "dimension",
+    "$description": "Application frame: sidebar plus header.",
+    "sidebar": {
+      "width": {
+        "$value": "{size.overlay.xs}"
+      }
+    },
+    "header": {
+      "height": {
+        "$value": "{size.bar}"
+      }
+    }
+  },
+  "empty-state": {
+    "icon": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{size.control.lg}"
+      }
+    }
+  },
+  "chart": {
+    "$type": "dimension",
+    "$description": "Chart marks. Read in JavaScript (Recharts props) through the values export.",
+    "line": {
+      "stroke": {
+        "$value": "{border.width.strong}",
+        "$description": "Line series width."
+      }
+    },
+    "mark": {
+      "gap": {
+        "$value": "{border.width.strong}",
+        "$description": "Surface-colored gap between touching marks, and the ring around dots."
+      },
+      "radius": {
+        "$value": "{radius.indicator}",
+        "$description": "Rounded data end of bars."
+      }
+    },
+    "bar": {
+      "thickness": {
+        "$value": "{size.icon.lg}",
+        "$description": "Maximum bar thickness; bars never fill their band."
+      }
+    }
+  },
+  "slider": {
+    "$type": "dimension",
+    "track": {
+      "height": {
+        "$value": "{space.xs}",
+        "$description": "Thickness of the slider's track. Follows density."
+      }
+    },
+    "thumb": {
+      "size": {
+        "$value": "{size.icon.md}"
+      }
+    }
+  },
+  "macro-bar": {
+    "$type": "dimension",
+    "height": {
+      "$value": "{space.md}",
+      "$description": "Thickness of a stacked proportion bar."
+    }
+  },
+  "heatmap": {
+    "$type": "dimension",
+    "cell": {
+      "size": {
+        "$value": "{size.icon.sm}",
+        "$description": "One day's square in a calendar heatmap. Follows density."
+      },
+      "radius": {
+        "$value": "{radius.indicator}"
+      }
+    }
+  }
+}

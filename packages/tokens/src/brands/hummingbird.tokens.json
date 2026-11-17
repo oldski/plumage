@@ -1,0 +1,496 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Hummingbird: iridescent emerald accent on cool gray neutrals, with positive roles on teal so they stay apart from the accent. Small radii, quick motion, comfortable density. Energetic but clean. A ruby secondary accent waits for a secondary-accent role.",
+  "brand": {
+    "$description": "The brand palette: which primitive ramp fills each color role, plus the few decisions that depend on how light the brand's hue is. The Mode layer reads only from here, never from primitives, so every brand gets the same light and dark mapping.",
+    "color": {
+      "$type": "color",
+      "neutral": {
+        "0": {
+          "$value": "{color.white}"
+        },
+        "25": {
+          "$value": "{color.gray.25}"
+        },
+        "50": {
+          "$value": "{color.gray.50}"
+        },
+        "100": {
+          "$value": "{color.gray.100}"
+        },
+        "150": {
+          "$value": "{color.gray.150}"
+        },
+        "200": {
+          "$value": "{color.gray.200}"
+        },
+        "300": {
+          "$value": "{color.gray.300}"
+        },
+        "400": {
+          "$value": "{color.gray.400}"
+        },
+        "500": {
+          "$value": "{color.gray.500}"
+        },
+        "600": {
+          "$value": "{color.gray.600}"
+        },
+        "700": {
+          "$value": "{color.gray.700}"
+        },
+        "800": {
+          "$value": "{color.gray.800}"
+        },
+        "850": {
+          "$value": "{color.gray.850}"
+        },
+        "900": {
+          "$value": "{color.gray.900}"
+        },
+        "925": {
+          "$value": "{color.gray.925}"
+        },
+        "950": {
+          "$value": "{color.gray.950}"
+        },
+        "975": {
+          "$value": "{color.gray.975}"
+        },
+        "$description": "Neutral ramp: gray."
+      },
+      "accent": {
+        "50": {
+          "$value": "{color.emerald.50}"
+        },
+        "100": {
+          "$value": "{color.emerald.100}"
+        },
+        "200": {
+          "$value": "{color.emerald.200}"
+        },
+        "300": {
+          "$value": "{color.emerald.300}"
+        },
+        "400": {
+          "$value": "{color.emerald.400}"
+        },
+        "450": {
+          "$value": "{color.emerald.450}"
+        },
+        "500": {
+          "$value": "{color.emerald.500}"
+        },
+        "550": {
+          "$value": "{color.emerald.550}"
+        },
+        "600": {
+          "$value": "{color.emerald.600}"
+        },
+        "700": {
+          "$value": "{color.emerald.700}"
+        },
+        "800": {
+          "$value": "{color.emerald.800}"
+        },
+        "900": {
+          "$value": "{color.emerald.900}"
+        },
+        "950": {
+          "$value": "{color.emerald.950}"
+        },
+        "$description": "Accent ramp: emerald. The solid tokens are the brand's signature fill and are chosen per brand because they depend on the hue's natural lightness. Emerald is deep, so the fill is step 600 with white text.",
+        "solid": {
+          "$value": "{color.emerald.600}",
+          "$description": "Signature fill for primary actions and selected controls."
+        },
+        "solid-hover": {
+          "$value": "{color.emerald.700}"
+        },
+        "solid-active": {
+          "$value": "{color.emerald.800}"
+        },
+        "on-solid": {
+          "$value": "{color.white}",
+          "$description": "Text and icons on the solid fill. Must reach 4.5:1 against all three solid tokens."
+        }
+      },
+      "positive": {
+        "50": {
+          "$value": "{color.teal.50}"
+        },
+        "100": {
+          "$value": "{color.teal.100}"
+        },
+        "200": {
+          "$value": "{color.teal.200}"
+        },
+        "300": {
+          "$value": "{color.teal.300}"
+        },
+        "400": {
+          "$value": "{color.teal.400}"
+        },
+        "450": {
+          "$value": "{color.teal.450}"
+        },
+        "500": {
+          "$value": "{color.teal.500}"
+        },
+        "550": {
+          "$value": "{color.teal.550}"
+        },
+        "600": {
+          "$value": "{color.teal.600}"
+        },
+        "700": {
+          "$value": "{color.teal.700}"
+        },
+        "800": {
+          "$value": "{color.teal.800}"
+        },
+        "900": {
+          "$value": "{color.teal.900}"
+        },
+        "950": {
+          "$value": "{color.teal.950}"
+        },
+        "$description": "Positive ramp: teal."
+      },
+      "negative": {
+        "50": {
+          "$value": "{color.red.50}"
+        },
+        "100": {
+          "$value": "{color.red.100}"
+        },
+        "200": {
+          "$value": "{color.red.200}"
+        },
+        "300": {
+          "$value": "{color.red.300}"
+        },
+        "400": {
+          "$value": "{color.red.400}"
+        },
+        "450": {
+          "$value": "{color.red.450}"
+        },
+        "500": {
+          "$value": "{color.red.500}"
+        },
+        "550": {
+          "$value": "{color.red.550}"
+        },
+        "600": {
+          "$value": "{color.red.600}"
+        },
+        "700": {
+          "$value": "{color.red.700}"
+        },
+        "800": {
+          "$value": "{color.red.800}"
+        },
+        "900": {
+          "$value": "{color.red.900}"
+        },
+        "950": {
+          "$value": "{color.red.950}"
+        },
+        "$description": "Negative ramp: red."
+      },
+      "warning": {
+        "50": {
+          "$value": "{color.gold.50}"
+        },
+        "100": {
+          "$value": "{color.gold.100}"
+        },
+        "200": {
+          "$value": "{color.gold.200}"
+        },
+        "300": {
+          "$value": "{color.gold.300}"
+        },
+        "400": {
+          "$value": "{color.gold.400}"
+        },
+        "450": {
+          "$value": "{color.gold.450}"
+        },
+        "500": {
+          "$value": "{color.gold.500}"
+        },
+        "550": {
+          "$value": "{color.gold.550}"
+        },
+        "600": {
+          "$value": "{color.gold.600}"
+        },
+        "700": {
+          "$value": "{color.gold.700}"
+        },
+        "800": {
+          "$value": "{color.gold.800}"
+        },
+        "900": {
+          "$value": "{color.gold.900}"
+        },
+        "950": {
+          "$value": "{color.gold.950}"
+        },
+        "$description": "Warning ramp: gold."
+      },
+      "info": {
+        "50": {
+          "$value": "{color.blue.50}"
+        },
+        "100": {
+          "$value": "{color.blue.100}"
+        },
+        "200": {
+          "$value": "{color.blue.200}"
+        },
+        "300": {
+          "$value": "{color.blue.300}"
+        },
+        "400": {
+          "$value": "{color.blue.400}"
+        },
+        "450": {
+          "$value": "{color.blue.450}"
+        },
+        "500": {
+          "$value": "{color.blue.500}"
+        },
+        "550": {
+          "$value": "{color.blue.550}"
+        },
+        "600": {
+          "$value": "{color.blue.600}"
+        },
+        "700": {
+          "$value": "{color.blue.700}"
+        },
+        "800": {
+          "$value": "{color.blue.800}"
+        },
+        "900": {
+          "$value": "{color.blue.900}"
+        },
+        "950": {
+          "$value": "{color.blue.950}"
+        },
+        "$description": "Info ramp: blue."
+      },
+      "highlight": {
+        "50": {
+          "$value": "{color.ruby.50}"
+        },
+        "100": {
+          "$value": "{color.ruby.100}"
+        },
+        "200": {
+          "$value": "{color.ruby.200}"
+        },
+        "300": {
+          "$value": "{color.ruby.300}"
+        },
+        "400": {
+          "$value": "{color.ruby.400}"
+        },
+        "450": {
+          "$value": "{color.ruby.450}"
+        },
+        "500": {
+          "$value": "{color.ruby.500}"
+        },
+        "550": {
+          "$value": "{color.ruby.550}"
+        },
+        "600": {
+          "$value": "{color.ruby.600}"
+        },
+        "700": {
+          "$value": "{color.ruby.700}"
+        },
+        "800": {
+          "$value": "{color.ruby.800}"
+        },
+        "900": {
+          "$value": "{color.ruby.900}"
+        },
+        "950": {
+          "$value": "{color.ruby.950}"
+        },
+        "$description": "Highlight ramp: ruby. A second hue for emphasis in charts (one series, today's cell, a target), chosen to stand apart from the accent."
+      }
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Corner radius roles.",
+    "indicator": {
+      "$value": "{radius.50}",
+      "$description": "Checkboxes and other small state indicators."
+    },
+    "control": {
+      "$value": "{radius.100}",
+      "$description": "Buttons, inputs, selects, small controls."
+    },
+    "container": {
+      "$value": "{radius.200}",
+      "$description": "Cards, panels, table wrappers."
+    },
+    "overlay": {
+      "$value": "{radius.250}",
+      "$description": "Dialogs, sheets, popovers, menus."
+    },
+    "pill": {
+      "$value": "{radius.full}",
+      "$description": "Badges and fully rounded elements."
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "body": {
+        "$value": "{font.family.switzer}",
+        "$description": "Interface and reading text."
+      },
+      "display": {
+        "$value": "{font.family.clash-grotesk}",
+        "$description": "Page titles and hero numbers."
+      },
+      "numeric": {
+        "$value": "{font.family.switzer}",
+        "$description": "Figures in tables and stats, set with tabular numerals so columns align."
+      },
+      "mono": {
+        "$value": "{font.family.jetbrains-mono}",
+        "$description": "Code and fixed-width figures."
+      }
+    },
+    "display": {
+      "$description": "How the display face is set. A serif and a grotesk need different spacing, and weights read differently across families, so each brand tunes its own.",
+      "tracking": {
+        "$type": "number",
+        "$value": -0.01,
+        "$description": "Letter spacing for display text, in em."
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 1,
+        "$description": "Multiplier on the density's line height for display text: 1 keeps it."
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.600}",
+        "$description": "Weight of display text."
+      },
+      "figures": {
+        "$type": "string",
+        "$value": "lining-nums proportional-nums",
+        "$description": "font-variant-numeric for display text. Lining figures keep large numbers level with each other even when the face, or its fallback, defaults to oldstyle figures; proportional spacing looks even at display sizes."
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "body": {
+        "$value": "{font.weight.400}"
+      },
+      "label": {
+        "$value": "{font.weight.500}"
+      },
+      "heading": {
+        "$value": "{font.weight.500}"
+      },
+      "strong": {
+        "$value": "{font.weight.600}"
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "$description": "Set to 0ms under prefers-reduced-motion by the CSS build.",
+      "fast": {
+        "$value": "{duration.100}",
+        "$description": "Hover and press feedback."
+      },
+      "medium": {
+        "$value": "{duration.150}",
+        "$description": "Menus, tooltips, small reveals."
+      },
+      "slow": {
+        "$value": "{duration.250}",
+        "$description": "Dialogs and sheets."
+      }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard": {
+        "$value": "{easing.standard}",
+        "$description": "Elements moving within the screen."
+      },
+      "enter": {
+        "$value": "{easing.decelerate}",
+        "$description": "Elements appearing."
+      },
+      "exit": {
+        "$value": "{easing.accelerate}",
+        "$description": "Elements leaving."
+      }
+    }
+  },
+  "focus": {
+    "ring": {
+      "$type": "dimension",
+      "width": {
+        "$value": "{border-width.200}"
+      },
+      "offset": {
+        "$value": "{space.50}"
+      }
+    }
+  },
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "default": {
+        "$value": "{border-width.100}"
+      },
+      "strong": {
+        "$value": "{border-width.200}",
+        "$description": "Emphasis strokes: chart lines, the gap between touching chart marks."
+      }
+    }
+  },
+  "opacity": {
+    "$type": "number",
+    "disabled": {
+      "$value": "{opacity.50}"
+    }
+  },
+  "size": {
+    "$type": "dimension",
+    "overlay": {
+      "$description": "Widths for floating panels: menus, tooltips, toasts, sheets, dialogs.",
+      "2xs": {
+        "$value": "{size.4000}"
+      },
+      "xs": {
+        "$value": "{size.6000}"
+      },
+      "sm": {
+        "$value": "{size.8000}"
+      },
+      "md": {
+        "$value": "{size.11200}"
+      },
+      "lg": {
+        "$value": "{size.16000}"
+      }
+    }
+  }
+}

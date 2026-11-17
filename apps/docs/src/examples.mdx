@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Examples/About" />
+
+# Examples
+
+Two full screens built only from Plumage components and patterns, the way a product
+would put them together. They exist to show the system working as a whole, not one part
+at a time.
+
+- **Finance overview**: an app frame with navigation, a page header, headline figures with
+  their changes, value over time against a benchmark, allocation by sector, and a sortable,
+  searchable table of holdings.
+- **Health day**: the same frame around a single day: progress toward the day's targets,
+  macros split by calories, twelve weeks of consistency, a log of the day so far, and a
+  quick-entry field in the header.
+
+## One screen, every brand
+
+Neither screen names a brand or branches on one. Everything that makes it look like a
+product comes from tokens, so the toolbar's **Brand**, **Mode**, and **Density** switch the
+whole screen at once: colors, type, radius, spacing, chart palettes, and control heights.
+
+Set **View** to _All brands and modes_ to see a screen in all four brands, light and dark,
+side by side. A finance screen in a health brand is deliberate: it shows the components do
+not care which product they are in.
+
+## The data
+
+Every figure is invented: the holdings, the prices, the meals, the step counts. Nothing is
+real or tied to a product, and nothing reads the current date, so the screens look the same
+every day and the visual regression suite can compare them.
+
+## Full screen
+
+The screens are easiest to judge without the Storybook frame around them:
+
+- <a
+    href="iframe.html?id=examples-finance-overview--default&viewMode=story"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Finance overview, full screen
+  </a>
+- <a
+    href="iframe.html?id=examples-health-day--default&viewMode=story"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Health day, full screen
+  </a>
+
+Below the `md` breakpoint the sidebar moves behind a menu button, so narrow the window to
+see the mobile layout.

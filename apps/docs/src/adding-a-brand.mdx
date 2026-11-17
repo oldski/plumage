@@ -1,0 +1,77 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Adding a brand" />
+
+# Adding a brand
+
+A brand in Plumage is one token file plus one line in the resolver. Components never
+change: they use semantic tokens, and a brand only decides what those tokens point at.
+Sparrow was added this way (see ADR 0020), and so were Hummingbird and Chickadee (ADR 0039);
+use `packages/tokens/src/brands/sparrow.tokens.json` as the worked example.
+
+## 1. Get the color ramps
+
+A brand needs a neutral ramp and an accent ramp, and picks feedback ramps (positive,
+negative, warning, info) from the shared set. If the shared ramps already fit, skip to step 2.
+
+To add one, describe it in `packages/tokens/scripts/ramps.config.ts` (a hue, a peak chroma,
+and for neutrals a chroma range), then regenerate:
+
+```sh
+pnpm --filter @plumage/tokens ramps
+```
+
+Every ramp shares one luminance scale, so step 600 of a new ramp has the same contrast
+against white as step 600 of every other ramp. Check that existing ramps came out
+unchanged.
+
+## 2. Write the brand file
+
+Copy `src/brands/finch.tokens.json` to `src/brands/<brand>.tokens.json` and change only the
+values:
+
+- **`brand.color.*`**: point each slot at a ramp. Keep a feedback color away from the
+  accent's hue (Sparrow uses gold for warning because orange sits next to its russet;
+  Hummingbird puts positive on teal because green sits next to its emerald).
+- **`brand.color.highlight`**: a second hue for emphasis in charts (one series, today's
+  cell in a heatmap, a target line). Pick one that stands apart from the accent:
+  Hummingbird's is ruby, beside its emerald.
+- **`accent.solid`, `solid-hover`, `solid-active`, `on-solid`**: the signature fill. A light
+  hue (Finch's gold, step 300) takes dark text; a deep one (Sparrow's russet, step 600)
+  takes white.
+- **`radius`**, **`motion`**, **`border`**, **`focus`**, **`opacity`**: the brand's shape and
+  feel, from the primitives.
+- **`font.family`**: `body`, `display`, `numeric`, and `mono`, each pointing at a primitive
+  stack. Fonts are named, not bundled; sans stacks fall back to Inter and then the system
+  font. Check a new face's figures (see Typography) before using it for `numeric`.
+- **`font.display`**: `weight`, `tracking` (em), `line-height` (a multiplier, 1 keeps the
+  density's), and `figures`, tuned for the display face.
+
+Do not add or remove keys. Every brand must declare the same tokens, and a test fails if
+they differ.
+
+## 3. Register it
+
+In `src/plumage.resolver.json`, add the brand to `modifiers.brand.contexts`, and give it a
+display name and default density under `$extensions["dev.plumage"].brands`.
+
+## 4. Build and check
+
+```sh
+pnpm --filter @plumage/tokens build
+pnpm --filter @plumage/tokens check
+```
+
+`check` tests every text and UI contrast pair in both modes, the ramp contract, the chart
+palettes, and the tier rules. A brand is not done until it passes.
+
+## 5. See it
+
+The brand appears in this Storybook's toolbar, in the _All brands and modes_ view, and as a
+mode in the Figma "Brand" collection, with no further changes. An app uses it with
+`<PlumageProvider brand="<brand>">` or `data-brand="<brand>"` on `<html>`.
+
+## 6. Record it
+
+Add a changeset for `@plumage/tokens` (minor for a new brand; major if a brand or token is
+removed or renamed), and an ADR if the brand needed a new ramp or role.

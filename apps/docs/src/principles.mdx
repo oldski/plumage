@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Principles" />
+
+# Principles
+
+Plumage serves more than one product, so every choice in it has to work for a brand that
+does not exist yet. These are the rules the code is held to.
+
+## Brands are data, not code
+
+A brand is a token file and one line in the resolver. Components never mention a brand,
+never branch on one, and never carry a color, size, or font of their own. The four brands
+look different because their tokens point at different values, not because a component
+knows about them. A third brand should need no component change (see _Adding a brand_).
+
+## Meaning before value
+
+Tokens come in three tiers. Primitives are raw values named by what they are
+(`color.gold.300`). Semantic tokens say what a value is for (`color.text.muted`,
+`color.feedback.negative`). Component tokens exist only where a component needs its own
+knob (`button.radius`). Components use only the last two, and a test compiles every class
+they use against the token theme, so `text-sm` or `p-4` fails the build.
+
+## Every combination is designed
+
+Two brands, two modes, and two densities make eight combinations, and each is a design,
+not an accident. Dark mode is chosen step by step, never inverted. Density changes spacing,
+control heights, row heights, and type sizes together. The visual regression suite
+screenshots every story in all eight.
+
+## Accessible by default
+
+Contrast is checked for every text, UI, and chart pairing in every brand and mode before a
+token change can land. Components are built on Radix, so keyboard support, focus
+management, and ARIA come with them, and every story runs axe. Color never carries meaning
+alone: a Delta has an arrow and words, a status has an icon and a label.
+
+## Numbers are first class
+
+Money is shown with tabular figures, so columns line up, and a true minus sign (U+2212),
+which is as wide as a plus and read aloud as "minus". Formatting goes through one
+function, `formatNumber`, so every amount in every app follows the same rules.
+
+## Calm motion
+
+Durations and easings are tokens, chosen per brand. Under `prefers-reduced-motion` every
+duration drops to zero, and charts skip their entrance animation.
+
+## Copy-in, owned code
+
+Plumage starts from shadcn/ui and keeps its model: components are source you can read and
+change. The registry hands out that source, not a black box, so a product can adapt a
+component without forking a package.

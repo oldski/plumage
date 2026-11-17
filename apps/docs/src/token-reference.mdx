@@ -1,0 +1,80 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { ChartPalette, ColorTokens, ValueTokens } from "./blocks/token-reference";
+
+<Meta title="Foundations/Token reference" />
+
+# Token reference
+
+Every semantic and component token, resolved from the token build. Pick a brand, mode, and
+density in each block; the block restyles itself in that combination. Contrast is computed
+from the resolved values: a background is measured with the text meant for it, and a
+foreground on `color.bg.surface`. Text needs 4.5:1 and UI marks 3:1. The full list of
+checked pairings is in `packages/tokens/dist/accessibility-report.md`
+(`pnpm --filter @plumage/tokens check`).
+
+Components use these through Tailwind utilities (`bg-surface`, `text-muted`,
+`h-control-md`) or as CSS variables (`var(--pl-color-text-muted)`). Primitives exist only
+for tokens to point at, so they are not listed.
+
+## Backgrounds
+
+<ColorTokens prefix="color.bg." />
+
+## Text
+
+<ColorTokens prefix="color.text." />
+
+## Borders
+
+<ColorTokens prefix="color.border." />
+
+## Accent
+
+<ColorTokens prefix="color.accent." />
+
+## Feedback
+
+<ColorTokens prefix="color.feedback." />
+
+## Chart palette
+
+<ChartPalette />
+
+## Spacing
+
+<ValueTokens prefixes={["space."]} bar />
+
+## Sizes
+
+<ValueTokens prefixes={["size."]} />
+
+## Radius, borders, and focus
+
+<ValueTokens prefixes={["radius.", "border.", "focus.", "opacity."]} />
+
+## Shadows and motion
+
+<ValueTokens prefixes={["shadow.", "motion."]} />
+
+## Component tokens
+
+<ValueTokens
+  prefixes={[
+    "button.",
+    "input.",
+    "checkbox.",
+    "switch.",
+    "progress.",
+    "badge.",
+    "card.",
+    "dialog.",
+    "sheet.",
+    "menu.",
+    "tooltip.",
+    "toast.",
+    "table.",
+    "app-shell.",
+    "empty-state.",
+    "chart.",
+  ]}
+/>

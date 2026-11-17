@@ -1,0 +1,26 @@
+<!--
+  Brand typefaces, loaded from Fontshare's CSS API (ITF Free Font License: the
+  fonts are delivered from Fontshare's servers, never committed here).
+  Weights come from the brand tokens: Switzer 400/500/600 (body, label,
+  heading, strong), Satoshi 500 (Sparrow display), Clash Grotesk 600
+  (Hummingbird display), Gambetta 500 (Chickadee display). Cabinet Grotesk
+  (Finch display, 600) has no static 600, so @1 asks for the variable face.
+  The trailing v=1 keeps this URL its own cache entry: Fontshare's CDN has
+  served truncated stylesheets for the bare URL.
+  Loaded with media=print and switched to all on load, so a slow or hung
+  Fontshare never blocks first paint.
+-->
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=cabinet-grotesk@1&f[]=satoshi@500&f[]=clash-grotesk@600&f[]=gambetta@500&display=swap&v=1"
+  media="print"
+  onload="this.media = 'all'"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=cabinet-grotesk@1&f[]=satoshi@500&f[]=clash-grotesk@600&f[]=gambetta@500&display=swap&v=1"
+  />
+</noscript>

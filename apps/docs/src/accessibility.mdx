@@ -1,0 +1,59 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Accessibility" />
+
+# Accessibility standards
+
+Plumage targets **WCAG 2.2 level AA** in every brand, mode, and density. These are the
+standards a component or token change is held to, and where each is checked.
+
+## Color and contrast
+
+| What                                         | Minimum  | Checked by                            |
+| -------------------------------------------- | -------- | ------------------------------------- |
+| Body text and labels on any background       | 4.5:1    | `pnpm --filter @plumage/tokens check` |
+| Text on accent and status fills              | 4.5:1    | The same check                        |
+| UI boundaries: inputs, focus rings, switches | 3:1      | The same check                        |
+| Chart marks on the chart surface             | 3:1      | The same check                        |
+| Chart palette under protanopia, deuteranopia | Distinct | The same check (OKLab distance)       |
+
+The check computes every pairing from the built tokens, compositing translucent tokens
+over their surface first, and fails the build below the minimum. The _Token reference_
+shows the same ratios beside each swatch. Color is never the only signal: deltas carry an
+arrow and words, statuses carry an icon and a label, and chart series are named in a legend
+and a table view.
+
+## Keyboard and focus
+
+- Everything that can be clicked can be reached and used with the keyboard, in a sensible
+  order. Radix provides roving focus, typeahead, and Escape to close.
+- Focus is always visible: `focus-ring` draws a token-colored ring at 3:1 or better.
+- Overlays (Dialog, Sheet, menus, Popover) trap focus while open and return it to their
+  trigger when closed.
+
+## Names and roles
+
+Every control has an accessible name: a `Label` pointing at it, or `aria-label` where there
+is no room for one (a table row's picker). Icons that repeat text are hidden from assistive
+technology; icon-only buttons are named. Tables use real table markup, and charts have a
+summary and a table view.
+
+## Motion
+
+Durations are tokens, and under `prefers-reduced-motion` they all become zero. Charts skip
+their entrance animation. Nothing flashes.
+
+## Numbers
+
+Signed figures use a true minus sign (U+2212), which screen readers read as "minus", and
+tabular figures so columns line up. Money is in a `data` element that holds the number.
+
+## How it is tested
+
+- **Every story runs axe** (WCAG 2.x A and AA) in Vitest, after its play function, so
+  opened menus and dialogs are checked too.
+- **Play functions** drive components by keyboard the way a person would and assert focus.
+- **The Accessibility panel** in this site runs axe on the whole page, overlays included,
+  with real color contrast.
+- **Visual regression** screenshots every story in every combination, so a contrast or
+  focus change shows up as a diff.

@@ -1,0 +1,41 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Plumage
+
+A brand-agnostic design system built on shadcn/ui, Radix, and Tailwind v4. Each product is a
+theme: **Finch** (dense, precise, warm gold) for the portfolio app, **Sparrow** (calm, roomy,
+earthy russet) for the budget app, **Hummingbird** (energetic, clean, emerald) for training and
+recovery, and **Chickadee** (cozy, warm buff on cream) for nutrition.
+
+## Use the toolbar
+
+Every story can be viewed in any combination:
+
+- **Brand**: Finch, Sparrow, Hummingbird, or Chickadee.
+- **Mode**: light or dark. Each mode is designed separately, not inverted.
+- **Density**: the brand's default (Finch compact; the others comfortable), or force one.
+- **View**: _All brands and modes_ renders the story eight times, side by side, each in its own
+  scope.
+
+The **Accessibility** panel runs axe on the whole page, including overlays. The **Interactions**
+panel shows each story's play function, the same code CI runs as a test.
+
+## How it is built
+
+- Tokens: `@plumage/tokens`, DTCG JSON with a resolver for brand, mode, and density.
+  Components use only semantic and component tokens.
+- Components: `@plumage/ui`, ported from shadcn/ui and restyled with token utilities. A test
+  compiles every class against the token theme, so raw values such as `text-sm` or `p-4` fail
+  CI.
+- Decisions: see `docs/adr` in the repository.
+
+## Where to go next
+
+- **Guides:** Principles, Installing with shadcn, Adding a brand, Accessibility, the Figma
+  workflow, and Contributing.
+- **Foundations:** the Token reference, with swatches and contrast ratios for every
+  brand, mode, and density, and Typography.
+- **Primitives and Patterns:** every component, with usage guidance, do and don't, its
+  props, and accessibility notes.

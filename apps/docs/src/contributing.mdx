@@ -1,0 +1,65 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Contributing" />
+
+# Contributing
+
+Plumage lives in `packages/tokens` and `packages/ui`; this site is `apps/docs`. Decisions
+are recorded as ADRs in `docs/adr`.
+
+## Before you start
+
+```sh
+pnpm install
+pnpm --filter @plumage/docs dev
+```
+
+Read _Principles_. In short: semantic and component tokens only, no brand names in
+components, every combination designed, accessible by default.
+
+## Adding or changing a component
+
+1. **Start from shadcn/ui** when it has the component, then replace every class with token
+   utilities. The class guard (`packages/ui/test/utilities.test.ts`) compiles each class
+   against the token theme and fails on raw values such as `text-sm`, `p-4`, or `#fff`.
+2. **If a value is missing, add a token**, not a one-off class: a semantic token if the
+   meaning is general, a component token if only this component needs the knob. Run
+   `pnpm --filter @plumage/tokens check` after.
+3. **Typed props, `className` passthrough, keyboard support, a visible focus ring, and
+   correct ARIA** are required for every component.
+4. **Write a story** next to the component, with the description's _Do_, _Don't_, and
+   _Accessibility_ sections. Give interactive stories a play function that drives them by
+   keyboard; it runs as a test with axe.
+5. **Test what a story cannot** in `packages/ui/test`.
+6. **Export it** from `packages/ui/src/index.ts`. The registry picks it up on its next
+   build.
+
+## Checks
+
+```sh
+pnpm check
+```
+
+`pnpm test`, `pnpm lint`, and `pnpm typecheck` run across the workspace. For visual changes:
+
+```sh
+pnpm visual
+```
+
+compares every story in every brand, mode, and density with the baselines. When a change is
+intended, look at the diffs in the report, then accept them:
+
+```sh
+pnpm visual:update
+```
+
+## Recording it
+
+- **A changeset** for `@plumage/tokens` or `@plumage/ui` (`pnpm changeset`): minor for
+  something new, major for a removed or renamed token or prop.
+- **An ADR** for a decision someone would ask about later: a new dependency, a new token
+  tier or role, a change of approach. Copy `docs/adr/0000-template.md`.
+
+## Writing
+
+Plain, direct sentences. No em dashes anywhere: copy, docs, comments, or commit messages.
