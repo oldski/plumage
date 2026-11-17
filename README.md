@@ -77,6 +77,14 @@ files are added to the export instead. The `.plumage-export` file at the root is
 by each export and names the commit it came from; the next export needs it, so do not edit
 or delete it.
 
+## Hosting
+
+The documentation site is deployed by Vercel from this repository. `vercel.json` holds the
+build settings: it builds `@plumage/docs` and its dependencies and serves
+`apps/docs/storybook-static`. The project sets one environment variable,
+`PLUMAGE_REGISTRY_ORIGIN`, to the site's address, which the registry build writes into
+`/r/registry.json`.
+
 ## Versioning
 
 `@plumage/tokens` and `@plumage/ui` are versioned together with
