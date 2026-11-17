@@ -28,6 +28,7 @@ One headline number with its label and change.
 - Write the label in sentence case with no trailing colon: "Total value".
 - Compact large values (\`formatNumber(v, { compact: true })\` gives $4.2M) unless the exact figure matters.
 - Pair the value with a \`Delta\` that names its period.
+- Size a row of cards by its container, not the viewport (\`@container\` with \`@md:\` and \`@4xl:\` columns, as in Row), so a row in a narrow column still gives each figure room.
 
 **Don't**
 - Turn a single number into a chart; the number is the chart.
@@ -90,27 +91,31 @@ export const Loading: Story = {
 
 export const Row: Story = {
   render: () => (
-    <div className="grid gap-md sm:grid-cols-2 lg:grid-cols-4">
-      <StatCard
-        label="Total value"
-        value={formatNumber(portfolioTotal, { format: "currency" })}
-        delta={<Delta value={0.0124} period="today" />}
-      />
-      <StatCard
-        label="Day change"
-        value={formatNumber(312.4, { format: "currency", sign: "always" })}
-        delta={<Delta value={312.4} format="currency" period="today" />}
-      />
-      <StatCard
-        label="Unrealized P/L"
-        value={formatNumber(2418.5, { format: "currency", compact: true })}
-        delta={<Delta value={0.071} period="all time" />}
-      />
-      <StatCard
-        label="Cash"
-        value={formatNumber(4210.55, { format: "currency" })}
-        description="12% of portfolio"
-      />
+    // Columns follow the row's own width, not the viewport: four only when each
+    // card has room for a long figure on one line in the widest display face.
+    <div className="@container">
+      <div className="grid gap-md @md:grid-cols-2 @4xl:grid-cols-4">
+        <StatCard
+          label="Total value"
+          value={formatNumber(portfolioTotal, { format: "currency" })}
+          delta={<Delta value={0.0124} period="today" />}
+        />
+        <StatCard
+          label="Day change"
+          value={formatNumber(312.4, { format: "currency", sign: "always" })}
+          delta={<Delta value={312.4} format="currency" period="today" />}
+        />
+        <StatCard
+          label="Unrealized P/L"
+          value={formatNumber(2418.5, { format: "currency", compact: true })}
+          delta={<Delta value={0.071} period="all time" />}
+        />
+        <StatCard
+          label="Cash"
+          value={formatNumber(4210.55, { format: "currency" })}
+          description="12% of portfolio"
+        />
+      </div>
     </div>
   ),
 };

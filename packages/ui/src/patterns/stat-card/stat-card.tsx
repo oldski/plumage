@@ -56,8 +56,12 @@ export function StatCard({
             </>
           ) : (
             <>
-              {/* The brand's display figures: proportional and lining, never tabular. */}
-              <dd className="display-figure text-default">{value}</dd>
+              {/*
+               * The brand's display figures: proportional and lining, never
+               * tabular. A figure wider than the card wraps onto a second
+               * line instead of running past the edge, so it is never cut off.
+               */}
+              <dd className="display-figure wrap-break-word text-default">{value}</dd>
               {delta !== undefined && <dd>{delta}</dd>}
             </>
           )}

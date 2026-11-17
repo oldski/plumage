@@ -32,11 +32,14 @@ Density defaults to the brand's own: Finch compact; Sparrow, Hummingbird, and Ch
 
 ## Components
 
-**Primitives:** Badge, Button, Card, Checkbox, Dialog, DropdownMenu, Input, Label, Select,
-Separator, Sheet, Skeleton, Switch, Table, Tabs, Textarea, Toast (`Toaster` and `toast()`), Tooltip.
+**Primitives:** Alert, Badge, Button, Card, Checkbox, Combobox, DatePicker (and `Calendar`),
+Dialog, DropdownMenu, Input, Label, NumberInput, Popover, Progress, ProgressRing, Select,
+Separator, Sheet, Skeleton, Slider, Switch, Table, Tabs, Textarea, Toast (`Toaster` and
+`toast()`), Tooltip.
 
-**Patterns:** AppShell, ChartContainer (Recharts 3), DataTable (TanStack Table v9), Delta,
-EmptyState, PageHeader, StatCard.
+**Patterns:** AppShell, CalendarHeatmap, ChartContainer (Recharts 3), DataTable (TanStack
+Table v9), Delta, EmptyState, FileDropzone, MacroBar, Markdown, Measure, Money, PageHeader,
+QuickAddBar, StatCard, Timeline.
 
 **Helpers:** `formatNumber` (percent, currency, compact, signed), `foldToOther` and
 `seriesColor` for charts, `useChartTokens` for Recharts props resolved from tokens.
