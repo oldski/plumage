@@ -4,7 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "env": ["PLUMAGE_REGISTRY_ORIGIN"],
+      "env": ["PLUMAGE_REGISTRY_ORIGIN", "PLUMAGE_GTM_ID"],
       "inputs": ["$TURBO_DEFAULT$", "!**/*.md"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**", "storybook-static/**", "public/r/**"]
     },

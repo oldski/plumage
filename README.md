@@ -85,6 +85,9 @@ build settings: it builds `@plumage/docs` and its dependencies and serves
 `PLUMAGE_REGISTRY_ORIGIN`, to the site's address, which the registry build writes into
 `/r/registry.json`.
 
+The build command in `vercel.json` also sets `PLUMAGE_GTM_ID`, which adds a Google Tag
+Manager container to the hosted site. A local build leaves it unset and loads no analytics.
+
 ## Versioning
 
 `@plumage/tokens` and `@plumage/ui` are versioned together with
